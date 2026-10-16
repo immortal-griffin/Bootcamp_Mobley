@@ -30,31 +30,13 @@ public class Calculator1 {
         double totalInterest = (monthlyPayment * numMonthlyPayments) - principal;
 
 
-        System.out.printf("Your monthly payment is: $%.2f%n", monthlyPayment);
-        System.out.printf("Your total interest is: %.2f", totalInterest);
-
-
-
-
-
-        //System.out.println();
-
-
-
-
-
-
+        System.out.printf("Your monthly payment is $%.2f.%n", monthlyPayment);
+        System.out.printf("Your total interest is %.2f.", totalInterest);
 
 
 
 
     }
-
-        //principal = int
-        //aInterestRate = double
-        //mInterestRate = double
-        //loanTerm = int
-        //numMonthlyPayments = int
 
 
 

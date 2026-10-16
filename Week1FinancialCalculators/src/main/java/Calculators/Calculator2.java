@@ -25,16 +25,9 @@ public class Calculator2 {
 
         double totalInterestEarned = futureValue - principal;
 
-        System.out.printf("Your CD's future value is $%.2f%n", futureValue);
-        System.out.printf("Your total interest earned is $%.2f", totalInterestEarned);
+        System.out.printf("Your CD's future value is $%.2f.%n", futureValue);
+        System.out.printf("Your total interest earned is $%.2f.", totalInterestEarned);
 
-
-
-
-
-        //principal = int
-        //aInterestRate = double
-        //aInterestPercent
 
 
     }
