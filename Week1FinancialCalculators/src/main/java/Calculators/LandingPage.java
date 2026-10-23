@@ -14,7 +14,7 @@ public class LandingPage {
         System.out.println("Which calculator would you like to use: (1, 2 or 3)");
         System.out.println("-----1. Mortgage Calculator-----");
         System.out.println("-----2. Certificate Of Deposit-----");
-        System.out.println("-----3. Annuity Calculator-----");
+        System.out.println("-----3. Annuity Calculator-----.");
         int calcNum = scanner.nextInt();
 
         switch (calcNum) {
