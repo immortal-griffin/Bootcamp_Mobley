@@ -34,7 +34,7 @@ public class LandingPage {
             System.out.println("1. Show Available Books");
             System.out.println("2. Checked Out Books");
             System.out.println("3. Exit");
-            System.out.println("Please Enter Your Choice: ");
+            System.out.println("Please Enter Your Choice: (1 - 3) ");
 
             int userInput = scanner.nextInt();
             scanner.nextLine();
