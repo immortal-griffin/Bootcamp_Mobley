@@ -32,7 +32,7 @@ public class LandingPage {
         while (true) {
             System.out.println("---Neighborhood Library Menu---");
             System.out.println("1. Show Available Books");
-            System.out.println("2. Checked Out Books");
+            System.out.println("2. Return A Book");
             System.out.println("3. Exit");
             System.out.println("Please Enter Your Choice: (1 - 3) ");
 
@@ -43,59 +43,64 @@ public class LandingPage {
                 case 1:
                     for (Book book : horrorBooks) {
                         if (book.isCheckedOut() == false) {
-                            System.out.println(book.getTitle());
+                            System.out.println("Book Title: " + book.getTitle() + ", ID: " + book.getId());
                         }
                     }
-                    System.out.println("Which Book would you like?");
-                    String bookNameB = scanner.nextLine();
-                    System.out.println("What is your name?");
-                    String customerNameB = scanner.nextLine();
+                    System.out.println("Please enter the ID of the book you would like");
+                    int idB = scanner.nextInt();
+                    scanner.nextLine();
+
                     for (Book book : horrorBooks) {
-                        if (book.getTitle().equals(bookNameB)) {
-                            book.setIsCheckedOut(true);
-                            book.setCheckedOutTo(customerNameB);
-                            System.out.println("Book " + bookNameB + " is checked out to " + customerNameB + "!");
-                            System.out.println("Redirecting To Main Menu...");
-                        }
+                        if (book.getId() == idB) {
+                            if(book.isCheckedOut()) {
+                                System.out.println("Sorry, this book is already checked out.");
+                                System.out.println("Redirecting To Main Menu...");
+                            } else {
+                                System.out.println("Please enter your first and last name");
+                                String customerNameB = scanner.nextLine();
+                                if (book.checkOut(customerNameB)) {
+                                    System.out.println(book.getTitle() + " is checked out to " + customerNameB + "!");
+                                    System.out.println("Redirecting To Main Menu...");
+                            }
+                                }
+                            }
                     }
                     break;
                 case 2:
-                    System.out.println("Are you returning a book? (Y/N)");
-                    char input = scanner.next().charAt(0);
-                    if (input == 'Y') {
-                        scanner.nextLine();
-                        System.out.println("What is your first and last name?");
-                        String customerNameR = scanner.nextLine();
-
-                        for (Book book : horrorBooks) {
-                            if (book.getCheckedOutTo().equals(customerNameR)) {
-                                System.out.println(book.getTitle());
+                    System.out.println("Please enter your first and last name");
+                    String customerNameR = scanner.nextLine();
+                     for (Book book : horrorBooks) {
+                            if (book.getCheckedOutTo().equalsIgnoreCase(customerNameR)) {
+                                System.out.println("Book Title: " + book.getTitle() + ", ID: " + book.getId());
                             }
                         }
-                    } else
-                        System.out.println("Redirecting To Main Menu...");
-
-                        System.out.println("Please choose the book you'd like to return.");
-                        String bookNameR = scanner.nextLine();
+                        System.out.println("Please enter the ID of the book you'd like to return.");
+                        int idR = scanner.nextInt();
                         for (Book book : horrorBooks) {
-                            if (book.getTitle().equals(bookNameR)) {
-                                book.setIsCheckedOut(false);
-                                book.setCheckedOutTo("");
-                                System.out.println("Thank you for returning " + bookNameR + "!");
-                                System.out.println("Returning To Main Menu...");
+                            if (book.getId() == idR) {
+                                if (!book.isCheckedOut()) {
+                                    System.out.println("This book is not checked out to you.");
+                                    System.out.println("Redirecting To Main Menu...");
+                                } else if (!book.getCheckedOutTo().equalsIgnoreCase(customerNameR)) {
+                                    System.out.println("This book is not checked out to you.");
+                                    System.out.println("Redirecting To Main Menu...");
+                                } else if (book.checkIn()) {
+                                    System.out.println("Thank you for returning " + book.getTitle() + "!");
+                                    System.out.println("Redirecting To Main Menu...");
+                                }
                             }
-
-                        }
-                        break;
-                        case 3:
-                            System.exit(0);
-                        default: {
-                            System.out.println("Invalid choice.");
-                            System.out.println("Redirecting To Main Menu...");
                         }
 
+                    break;
+                case 3:
+                    System.exit(0);
+                default: {
+                    System.out.println("Invalid choice.");
+                    System.out.println("Redirecting To Main Menu...");
+                }
 
-                    }
+
             }
         }
     }
+}

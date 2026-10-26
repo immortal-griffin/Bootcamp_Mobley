@@ -42,6 +42,30 @@ public class Book {
             this.title = title;
             this.isCheckedOut = isCheckedOut;
             this.checkedOutTo = checkedOutTo;
+        }
+
+            public boolean checkOut(String customerNameB) {
+                if (isCheckedOut) {
+                    return false;
+                }
+
+                this.isCheckedOut = true;
+                this.checkedOutTo = customerNameB;
+
+                return true;
+            }
+
+
+            public boolean checkIn() {
+            if (!isCheckedOut) {
+                return false;
+            }
+
+                this.isCheckedOut = false;
+                this.checkedOutTo = "";
+
+                return true;
+            }
 
             }
-        }
+
