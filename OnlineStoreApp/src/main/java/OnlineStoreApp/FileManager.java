@@ -40,7 +40,8 @@ public class FileManager {
             FileWriter fileWriter = new FileWriter("src/main/resources/products.csv", true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-            String line = String.format("%s|%s|%.2f|%s|%d",
+            String line = String.format("%d|%s|%s|%.2f|%s|%d",
+                    product.getId(),
                     product.getSku(),
                     product.getProductName(),
                     product.getPrice(),
@@ -52,7 +53,7 @@ public class FileManager {
 
             bufferedWriter.close();
 
-            System.out.println("Write complete!");
+            System.out.println("New product added to inventory!");
         } catch (IOException ex) {
             System.out.println("Could not write to the file.");
         } catch (Exception ex) {

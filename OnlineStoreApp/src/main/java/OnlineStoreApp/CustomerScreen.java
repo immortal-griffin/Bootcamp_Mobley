@@ -16,13 +16,14 @@ public class CustomerScreen {
         System.out.println("Please enter your first name");
         String customerName = scanner.nextLine();
 
-        System.out.println("Welcome, " + customerName + "!");
-        System.out.println("1. View Inventory");
-        System.out.println("2. View Inventory By Category");
-        System.out.println("3. View Your Cart");
-        System.out.println("0. Exit");
-        System.out.println("Please choose from our menu:");
-        int userChoice = scanner.nextInt();
+        while (true) {
+            System.out.println("Welcome, " + customerName + "!");
+            System.out.println("1. View Inventory");
+            System.out.println("2. View Inventory By Category");
+            System.out.println("3. View Your Cart");
+            System.out.println("0. Exit");
+            System.out.println("Please choose from our menu:");
+            int userChoice = scanner.nextInt();
 
             switch (userChoice) {
                 case 1:
@@ -64,6 +65,7 @@ public class CustomerScreen {
                         if (id == choice) {
                             FileManager.addToCart(product);
                             System.out.println("You have added " + brokenUpRow[2] + " to your cart!");
+                            System.out.println("Returning to main menu...");
                         }
                     }
                     break;
@@ -81,3 +83,4 @@ public class CustomerScreen {
             }
         }
     }
+}
