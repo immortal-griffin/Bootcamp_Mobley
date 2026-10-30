@@ -1,26 +1,26 @@
-SKU|Product Name|Price|Category|Quantity
-CPU10001|AMD Ryzen 7 7800X3D|389.99|PC Components|7
-CPU10002|Intel Core i7-14700K|379.99|PC Components|8
-GPU20001|NVIDIA GeForce RTX 4070 SUPER|599.99|PC Components|3
-GPU20002|AMD Radeon RX 7800 XT|499.99|PC Components|5
-RAM30001|Corsair Vengeance 32GB DDR5 RAM|94.99|Memory|14
-RAM30002|G.Skill Trident Z5 64GB DDR5 RAM|189.99|Memory|7
-SSD40001|Samsung 990 PRO 2TB NVMe SSD|169.99|Storage|9
-SSD40002|Western Digital Blue 1TB SATA SSD|74.99|Storage|5
-PSU50001|Corsair RM850x 850W Power Supply|139.99|Power Supplies|9
-MBD60001|ASUS ROG STRIX B650E-F Motherboard|279.99|Motherboards|12
-CASE70001|NZXT H7 Flow Mid-Tower Case|129.99|PC Cases|5
-CLG80001|Noctua NH-D15 CPU Cooler|109.99|Cooling|7
-MON90001|LG UltraGear 27-inch 144Hz Monitor|249.99|Monitors|4
-MON90002|Samsung Odyssey G7 32-inch Monitor|599.99|Monitors|6
-KEY10002|Logitech G Pro Mechanical Keyboard|129.99|Gaming Accessories|9
-MOU20003|Razer DeathAdder V3 Gaming Mouse|69.99|Gaming Accessories|5
-HDS30003|SteelSeries Arctis Nova 7 Headset|179.99|Audio Equipment|10
-MIC40004|Blue Yeti USB Microphone|99.99|Audio Equipment|6
-CAM50005|Logitech Brio 4K Webcam|129.99|Camera Equipment|8
-CAM50006|Canon EOS R50 Mirrorless Camera|679.99|Camera Equipment|4
-LEN60007|Elgato Key Light Air|129.99|Streaming Equipment|10
-CAP70008|Elgato HD60 X Capture Card|179.99|Streaming Equipment|12
-NET80009|TP-Link Archer AXE75 Wi-Fi Router|179.99|Networking|7
-CAB90010|Cable Matters USB-C Hub|39.99|Computer Accessories|20
-UPS10011|APC Back-UPS 1000VA|159.99|Power Protection|3
+ID|SKU|Product Name|Price|Category|Quantity
+1|CPU10001|AMD Ryzen 7 7800X3D|389.99|PC Components|7
+2|CPU10002|Intel Core i7-14700K|379.99|PC Components|8
+3|GPU20001|NVIDIA GeForce RTX 4070 SUPER|599.99|PC Components|3
+4|GPU20002|AMD Radeon RX 7800 XT|499.99|PC Components|5
+5|RAM30001|Corsair Vengeance 32GB DDR5 RAM|94.99|Memory|14
+6|RAM30002|G.Skill Trident Z5 64GB DDR5 RAM|189.99|Memory|7
+7|SSD40001|Samsung 990 PRO 2TB NVMe SSD|169.99|Storage|9
+8|SSD40002|Western Digital Blue 1TB SATA SSD|74.99|Storage|5
+9|PSU50001|Corsair RM850x 850W Power Supply|139.99|Power Supplies|9
+10|MBD60001|ASUS ROG STRIX B650E-F Motherboard|279.99|Motherboards|12
+11|CASE70001|NZXT H7 Flow Mid-Tower Case|129.99|PC Cases|5
+12|CLG80001|Noctua NH-D15 CPU Cooler|109.99|Cooling|7
+13|MON90001|LG UltraGear 27-inch 144Hz Monitor|249.99|Monitors|4
+14|MON90002|Samsung Odyssey G7 32-inch Monitor|599.99|Monitors|6
+15|KEY10002|Logitech G Pro Mechanical Keyboard|129.99|Gaming Accessories|9
+16|MOU20003|Razer DeathAdder V3 Gaming Mouse|69.99|Gaming Accessories|5
+17|HDS30003|SteelSeries Arctis Nova 7 Headset|179.99|Audio Equipment|10
+18|MIC40004|Blue Yeti USB Microphone|99.99|Audio Equipment|6
+19|CAM50005|Logitech Brio 4K Webcam|129.99|Camera Equipment|8
+20|CAM50006|Canon EOS R50 Mirrorless Camera|679.99|Camera Equipment|4
+21|LEN60007|Elgato Key Light Air|129.99|Streaming Equipment|10
+22|CAP70008|Elgato HD60 X Capture Card|179.99|Streaming Equipment|12
+23|NET80009|TP-Link Archer AXE75 Wi-Fi Router|179.99|Networking|7
+24|CAB90010|Cable Matters USB-C Hub|39.99|Computer Accessories|20
+25|UPS10011|APC Back-UPS 1000VA|159.99|Power Protection|3

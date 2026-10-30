@@ -1,12 +1,20 @@
 package OnlineStoreApp;
 
 public class Product {
+    private int id;
     private String sku;
     private String productName;
     private float price;
     private String category;
     private int quantity;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id =id;
+    }
     public String getSku() {
         return sku;
     }
@@ -47,7 +55,8 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Product(String sku, String productName, float price, String category, int quantity) {
+    public Product(int id, String sku, String productName, float price, String category, int quantity) {
+        this.id = id;
         this.sku = sku;
         this.productName = productName;
         this.price = price;
