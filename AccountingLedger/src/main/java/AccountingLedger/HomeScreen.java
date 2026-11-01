@@ -23,17 +23,25 @@ public class HomeScreen {
                     LocalTime time = Methodology.promptForTime("Enter Time |hh:mm:ss|");
                     String description = Methodology.promptForString("Enter Description");
                     String vendor = Methodology.promptForString("Enter Vendor");
-                    float amount = Methodology.promptForFloat("Enter Amount");
+                    float amount = Methodology.promptForDeposit("Enter Amount");
                     String status = "Deposit";
 
                     Transaction transaction = new Transaction(date, time, description, vendor, amount, status);
                     FileManager.writeTransaction(transaction);
                     break;
                 case 'P':
-                    System.out.println("You have chosen Payment");
+                    LocalDate pDate = Methodology.promptForDate("Enter Date |yyyy-mm-dd|");
+                    LocalTime pTime = Methodology.promptForTime("Enter Time |hh:mm:ss|");
+                    String pDescription = Methodology.promptForString("Enter Description");
+                    String pVendor = Methodology.promptForString("Enter Vendor");
+                    float pAmount = Methodology.promptForPayment("Enter Amount");
+                    String pStatus = "Payment";
+
+                    Transaction payment = new Transaction(pDate, pTime, pDescription, pVendor, pAmount, pStatus);
+                    FileManager.writeTransaction(payment);
                     break;
                 case 'L':
-                    System.out.println("You have chosen Ledger");
+                    Ledger.ledgerMain();
                     break;
                 case 'X':
                     System.out.println("You have chosen to exit");
@@ -46,4 +54,3 @@ public class HomeScreen {
         }
     }
 }
-//"Enter Date |yyyy-mm-dd|"

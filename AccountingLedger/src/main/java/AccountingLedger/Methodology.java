@@ -14,7 +14,19 @@ public class Methodology {
         return input;
     }
 
-    public static float promptForFloat(String prompt) {
+    public static float promptForDeposit(String prompt) {
+        while(true) {
+            try {
+                System.out.println(prompt);
+                String input = scanner.nextLine();
+                return Float.parseFloat(input);
+            } catch (Exception e) {
+                System.out.println("Invalid Entry, please try again.");
+            }
+        }
+    }
+
+    public static float promptForPayment(String prompt) {
         while(true) {
             try {
                 System.out.println(prompt);
@@ -50,7 +62,3 @@ public class Methodology {
         }
     }
 }
-
-//todo: Rename promptForFloat to promptForDeposit
-//todo: create promptForPayment, copy line 21
-//todo: Remove "-" from line 21
