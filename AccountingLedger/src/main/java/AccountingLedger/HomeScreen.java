@@ -7,8 +7,11 @@ import java.util.Scanner;
 
 public class HomeScreen {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        HomeScreen.launchHomeScreen();
+    }
 
+    public static void launchHomeScreen() {
+    Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Main Menu");
             System.out.println("D) Add Deposit");

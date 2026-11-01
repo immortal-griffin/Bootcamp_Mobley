@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FileManager {
     public static List<Transaction> readTransactions() {
-        List<Transaction> transactionList = new ArrayList<>();
+        List<Transaction> transactions = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader("src/main/resources/transactions.csv");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -27,14 +27,14 @@ public class FileManager {
 
                 Transaction transaction = new Transaction(date, time, description, vendor, amount, status);
 
-                transactionList.add(transaction);
+                transactions.add(transaction);
             }
         } catch (IOException ex) {
             System.out.println("Could not read the file. Check the file and try again. ");
         } catch (Exception ex) {
             System.out.println("Could not read data from the file. Check the format.");
         }
-        return transactionList;
+        return transactions;
     }
 
     public static void writeTransaction(Transaction transaction) {
