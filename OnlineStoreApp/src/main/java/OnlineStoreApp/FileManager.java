@@ -95,4 +95,54 @@ public class FileManager {
             ex.printStackTrace();
         }
     }
-}
+
+    public static List<Product> searchForProductsByCategory(String category) {
+        List<Product> products = loadProductsFromFile();
+        List<Product> foundProducts = new ArrayList<>();
+        for (Product product : products) {
+            if (product.getCategory().toLowerCase().contains(category.toLowerCase())) {
+                foundProducts.add(product);
+            }
+        }
+        return foundProducts;
+    }
+
+    private static List<Product> loadProductsFromFile() {
+        List<Product> products = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(
+                new FileReader("src/main/resources/products.csv"))) {
+
+            String line;
+
+            reader.readLine(); // Skip header
+
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split("\\|");
+
+                int id = Integer.parseInt(data[0]);
+                String sku = data[1];
+                String productName = data[2];
+                float price = Float.parseFloat(data[3]);
+                String category = data[4];
+                int quantity = Integer.parseInt(data[5]);
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return products;
+    }
+    }
+
+/*List<Product> products = loadProductsFromFile();
+List<Product> foundProducts = new ArrayList<>();
+        for (Product product : products) {
+        if (product.getCategory().toLowerCase().contains(category.toLowerCase())) {
+        foundProducts.add(product);
+            }
+                    }
+                    return foundProducts;
+    } */
