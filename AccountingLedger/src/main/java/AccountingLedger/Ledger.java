@@ -96,12 +96,11 @@ public class Ledger {
     public static void printTransaction(Transaction t) {
         System.out.println(
                 t.getDate() + "|" +
-                        t.getTime() + "|" +
-                        t.getDescription() + "|" +
-                        t.getVendor() + "|" +
-                        t.getAmount() + "|" +
-                        t.getStatus()
-        );
+                t.getTime() + "|" +
+                t.getDescription() + "|" +
+                t.getVendor() + "|" +
+                t.getAmount() + "|" +
+                t.getStatus());
     }
 }
 //todo: Create Reports class to contain Reports branch and methods
