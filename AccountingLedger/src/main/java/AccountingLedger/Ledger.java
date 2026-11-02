@@ -52,7 +52,7 @@ public class Ledger {
                     Ledger.sortByPayment();
                     break;
                 case 'R':
-                    System.out.println("Reports page coming soon...");
+                    Reports.reportsMain();
                     break;
                 case 'H':
                     System.out.println("Returning to Home Screen...");
@@ -69,30 +69,41 @@ public class Ledger {
             if (t.getStatus().equalsIgnoreCase("Deposit")) {
                 System.out.println(
                         t.getDate() + "|" +
-                        t.getTime() + "|" +
-                        t.getDescription() + "|" +
-                        t.getVendor() + "|" +
-                        t.getAmount() + "|" +
-                        t.getStatus());
+                                t.getTime() + "|" +
+                                t.getDescription() + "|" +
+                                t.getVendor() + "|" +
+                                t.getAmount() + "|" +
+                                t.getStatus());
             }
         }
     }
+
     public static void sortByPayment() {
         for (int i = transactions.size() - 1; i >= 0; i--) {
             Transaction t = transactions.get(i);
             if (t.getStatus().equalsIgnoreCase("Payment")) {
                 System.out.println(
                         t.getDate() + "|" +
+                                t.getTime() + "|" +
+                                t.getDescription() + "|" +
+                                t.getVendor() + "|" +
+                                t.getAmount() + "|" +
+                                t.getStatus());
+            }
+        }
+    }
+
+    public static void printTransaction(Transaction t) {
+        System.out.println(
+                t.getDate() + "|" +
                         t.getTime() + "|" +
                         t.getDescription() + "|" +
                         t.getVendor() + "|" +
                         t.getAmount() + "|" +
-                        t.getStatus());
-            }
-        }
+                        t.getStatus()
+        );
     }
 }
-
 //todo: Create Reports class to contain Reports branch and methods
 //todo: Create predetermined search functions for Reports class
 //todo: Work out custom search function
