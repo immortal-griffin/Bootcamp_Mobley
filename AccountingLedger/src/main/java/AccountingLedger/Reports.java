@@ -43,8 +43,21 @@ public class Reports {
                     }
                         break;
                         case 3:
+                            for (int i = transactions.size() - 1; i >= 0; i--) {
+                                Transaction t = transactions.get(i);
+                                if (t.getDate().getYear() == today.getYear()) {
+                                    Ledger.printTransaction(t);
+                                }
+                            }
                             break;
                         case 4:
+                            int previousYear = LocalDate.now().getYear() - 1;
+                            for (int i = transactions.size() - 1; i >= 0; i--) {
+                                Transaction t = transactions.get(i);
+                                if (t.getDate().getYear() == previousYear) {
+                                    Ledger.printTransaction(t);
+                                }
+                            }
                             break;
                         case 5:
                             System.out.println("Enter The Vendor");
