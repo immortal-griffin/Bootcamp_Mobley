@@ -28,6 +28,7 @@ public class Ledger {
             switch (choice) {
                 case 'A':
                     try {
+                        //Reads through .csv file to print each line to the User Interface
                         FileReader fileReader = new FileReader("src/main/resources/transactions.csv");
                         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -48,8 +49,10 @@ public class Ledger {
                     Ledger.sortByDeposit();
                     break;
                 case 'P':
+                    Ledger.sortByPayment();
                     break;
                 case 'R':
+                    System.out.println("Reports page coming soon...");
                     break;
                 case 'H':
                     System.out.println("Returning to Home Screen...");
@@ -63,7 +66,21 @@ public class Ledger {
     public static void sortByDeposit() {
         for (int i = transactions.size() - 1; i >= 0; i--) {
             Transaction t = transactions.get(i);
-            if (t.getStatus().equals("Deposit")) {
+            if (t.getStatus().equalsIgnoreCase("Deposit")) {
+                System.out.println(
+                        t.getDate() + "|" +
+                        t.getTime() + "|" +
+                        t.getDescription() + "|" +
+                        t.getVendor() + "|" +
+                        t.getAmount() + "|" +
+                        t.getStatus());
+            }
+        }
+    }
+    public static void sortByPayment() {
+        for (int i = transactions.size() - 1; i >= 0; i--) {
+            Transaction t = transactions.get(i);
+            if (t.getStatus().equalsIgnoreCase("Payment")) {
                 System.out.println(
                         t.getDate() + "|" +
                         t.getTime() + "|" +
@@ -75,4 +92,7 @@ public class Ledger {
         }
     }
 }
-//todo: Create a reusable method that can call for payments and deposits based on a keyword
+
+//todo: Create Reports class to contain Reports branch and methods
+//todo: Create predetermined search functions for Reports class
+//todo: Work out custom search function
