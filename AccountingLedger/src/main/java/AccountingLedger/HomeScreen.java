@@ -25,8 +25,7 @@ public class HomeScreen {
                     "║P) Make Payment or Add Debit  ║\n" +
                     "║L) Access Ledger              ║\n" +
                     "║X) Exit                       ║\n" +
-                    "╚══════════════════════════════╝\n" +
-                    "╔══════════════════════════════╗\n" +
+                    "╠══════════════════════════════╣\n" +
                     "║    Please choose an option   ║\n" +
                     "╚══════════════════════════════╝\n" +
                     UIFormatting.RESET);
@@ -60,7 +59,7 @@ public class HomeScreen {
                     Ledger.ledgerMain();
                     break;
                 case 'X':
-                    System.out.println("You have chosen to exit");
+                    System.out.println(UIFormatting.RED + "You have chosen to exit" + UIFormatting.RESET);
                     System.exit(0);
                     break;
                 default:
@@ -71,7 +70,7 @@ public class HomeScreen {
     }
 
     public static String promptForString(String prompt) {
-        System.out.println(prompt);
+        UIFormatting.printSHeader(prompt);
         String input = scanner.nextLine();
         return input;
     }
@@ -79,7 +78,7 @@ public class HomeScreen {
     public static float promptForDeposit(String prompt) {
         while(true) {
             try {
-                System.out.println(prompt);
+                UIFormatting.printSHeader(prompt);
                 String input = scanner.nextLine();
                 return Float.parseFloat(input);
             } catch (Exception e) {
@@ -91,7 +90,7 @@ public class HomeScreen {
     public static float promptForPayment(String prompt) {
         while(true) {
             try {
-                System.out.println(prompt);
+                UIFormatting.printSHeader(prompt);
                 String input = "-" + scanner.nextLine();
                 return Float.parseFloat(input);
             } catch (Exception e) {
@@ -103,7 +102,7 @@ public class HomeScreen {
     public static LocalDate promptForDate(String prompt) {
         while(true) {
             try {
-                System.out.println(prompt);
+                UIFormatting.printSHeader(prompt);
                 String input = scanner.nextLine();
                 return LocalDate.parse(input);
             } catch (Exception ex) {
@@ -115,7 +114,7 @@ public class HomeScreen {
     public static LocalTime promptForTime(String prompt) {
         while(true) {
             try {
-                System.out.println(prompt);
+                UIFormatting.printSHeader(prompt);
                 String input = scanner.nextLine();
                 return LocalTime.parse(input);
             } catch (Exception ex) {

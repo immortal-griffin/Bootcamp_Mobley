@@ -30,7 +30,7 @@ public class FileManager {
                 transactions.add(transaction);
             }
         } catch (IOException ex) {
-            System.out.println("Could not read the file. Check the file and try again. ");
+            System.out.println("Could not read the file. Check the file and try again.");
         } catch (Exception ex) {
             System.out.println("Could not read data from the file. Check the format.");
         }
@@ -55,11 +55,11 @@ public class FileManager {
 
             bufferedWriter.close();
 
-            System.out.println("New transaction added to ledger!");
+            System.out.println(UIFormatting.GREEN + "New transaction added to ledger!" + UIFormatting.RESET);
         } catch (IOException ex) {
-            System.out.println("Could not write to the file.");
+            System.out.println(UIFormatting.RED + "Could not write to the file.");
         } catch (Exception ex) {
-            System.out.println("Error when handling the data.");
+            System.out.println("Error when handling the data." + UIFormatting.RESET);
         }
     }
 }

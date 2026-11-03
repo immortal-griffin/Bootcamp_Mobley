@@ -20,6 +20,7 @@ public class UIFormatting {
 
     // Background Colors
     public static final String BG_CHARCOAL = "\u001B[48;2;23;23;23m";
+    public static final String BG_DARK_GRAY = "\u001B[48;2;51;51;51m";
 
     // ==========================================
     // UI FORMATTING CONSTANTS
@@ -37,19 +38,42 @@ public class UIFormatting {
     public static final String EMPTY_BORDER =
             "║                                      ║";
 
+    public static final String SMALL_TOP_BORDER =
+            "╔══════════════════════════════╗";
+
+    public static final String SMALL_BOTTOM_BORDER =
+            "╚══════════════════════════════╝";
+
+    public static final String SMALL_DIVIDER =
+            "╠══════════════════════════════╣";
+
+    public static final String SMALL_EMPTY_BORDER =
+            "║                              ║";
+
     // ==========================================
     // REUSABLE UI METHODS
     // ==========================================
 
-    public static void printHeader(String title) {
+    public static void printLHeader(String title) {
 
         System.out.println(GOLD + TOP_BORDER + RESET);
 
         System.out.println(GOLD + "║" + RESET +
-                WHITE + centerText(title, 38) + RESET +
+                GOLD + centerText(title, 50) + RESET +
                 GOLD + "║" + RESET);
 
         System.out.println(GOLD + BOTTOM_BORDER + RESET);
+    }
+
+    public static void printSHeader(String title) {
+
+        System.out.println(GOLD + SMALL_TOP_BORDER + RESET);
+
+        System.out.println(GOLD + "║" + RESET +
+                GOLD + centerText(title, 30) + RESET +
+                GOLD + "║" + RESET);
+
+        System.out.println(GOLD + SMALL_BOTTOM_BORDER + RESET);
     }
 
     public static void printDivider() {

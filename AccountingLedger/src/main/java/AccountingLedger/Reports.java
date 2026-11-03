@@ -13,16 +13,25 @@ public class Reports {
     public static void reportsMain() {
 
         while (true) {
-            System.out.println("Reports");
-            System.out.println("1) Month To Date");
-            System.out.println("2) Previous Month");
-            System.out.println("3) Year To Date");
-            System.out.println("4) Previous Year");
-            System.out.println("5) Search By Vendor");
-            System.out.println("6) Custom Search");
-            System.out.println("9) Return To Ledger");
-            System.out.println("0) Return To Home");
-            System.out.println("Please Choose An Option");
+
+            System.out.println(UIFormatting.BG_CHARCOAL + UIFormatting.GOLD +
+                    "\n╔══════════════════════════════╗\n" +
+                    "║        WELCOME TO THE        ║\n" +
+                    "║      REPORTS MAIN MENU       ║\n" +
+                    "║                              ║\n" +
+                    "║1) Month To Date              ║\n" +
+                    "║2) Previous Month             ║\n" +
+                    "║3) Year To Date               ║\n" +
+                    "║4) Previous Year              ║\n" +
+                    "║5) Search By Vendor           ║\n" +
+                    "║6) Custom Search              ║\n" +
+                    "║9) Return To Ledger           ║\n" +
+                    "║0) Return To Home             ║\n" +
+                    "╠══════════════════════════════╣\n" +
+                    "║    Please choose an option   ║\n" +
+                    "╚══════════════════════════════╝\n" +
+                    UIFormatting.RESET);
+
             int choice = scanner.nextInt();
             scanner.nextLine();
             LocalDate today = LocalDate.now();
@@ -213,15 +222,17 @@ public class Reports {
                 results.add(transaction);
                 System.out.println(
                         transaction.getDate() + "|" +
-                                transaction.getTime() + "|" +
-                                transaction.getDescription() + "|" +
-                                transaction.getVendor() + "|" +
-                                transaction.getAmount() + "|" +
-                                transaction.getStatus());
-            } else {
-                System.out.println("No transactions available for this search criteria.");
-                break;
+                        transaction.getTime() + "|" +
+                        transaction.getDescription() + "|" +
+                        transaction.getVendor() + "|" +
+                        transaction.getAmount() + "|" +
+                        transaction.getStatus());
             }
+            }
+
+            if (results.isEmpty()) {
+                System.out.println(
+                        "No transactions available for this search criteria.");
         }
         return results;
     }
