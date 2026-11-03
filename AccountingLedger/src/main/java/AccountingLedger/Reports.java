@@ -73,7 +73,7 @@ public class Reports {
                     }
                     break;
                 case 5:
-                    System.out.println("Enter The Vendor You'd Like To Search For");
+                    UIFormatting.printLHeader("Enter The Vendor You'd Like To Search For");
                     String vChoice = scanner.nextLine();
                     for (int i = transactions.size() - 1; i >= 0; i--) {
                         Transaction t = transactions.get(i);
@@ -83,8 +83,8 @@ public class Reports {
                     }
                     break;
                 case 6:
-                    System.out.println("Custom Search");
-                    System.out.println("Enter the start date yyyy-mm-dd (Leave empty for any)");
+                    UIFormatting.printSHeader("Custom Search");
+                    UIFormatting.printLHeader("Enter the start date yyyy-mm-dd (Leave empty for any)");
                     LocalDate startDate = null;
                     while (true) {
                         try {
@@ -94,10 +94,10 @@ public class Reports {
                                     : LocalDate.parse(input);
                                     break;
                         } catch (Exception e) {
-                            System.out.println("Invalid Entry, please try again.");
+                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
                         }
                     }
-                    System.out.println("Enter the end date yyyy-mm-dd (Leave empty for any)");
+                    UIFormatting.printLHeader("Enter the end date yyyy-mm-dd (Leave empty for any)");
                     LocalDate endDate = null;
                     while (true) {
                         try {
@@ -107,10 +107,10 @@ public class Reports {
                                     : LocalDate.parse(input);
                             break;
                         } catch (Exception e) {
-                            System.out.println("Invalid Entry, please try again.");
+                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
                         }
                     }
-                    System.out.println("Enter the start time hh:mm:ss (Leave empty for any)");
+                    UIFormatting.printLHeader("Enter the start time hh:mm:ss (Leave empty for any)");
                     LocalTime startTime = null;
                     while (true) {
                         try {
@@ -120,10 +120,10 @@ public class Reports {
                                     : LocalTime.parse(input);
                             break;
                         } catch (Exception e) {
-                            System.out.println("Invalid Entry, please try again.");
+                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
                         }
                     }
-                    System.out.println("Enter the end time hh:mm:ss (Leave empty for any)");
+                    UIFormatting.printLHeader("Enter the end time hh:mm:ss (Leave empty for any)");
                     LocalTime endTime = null;
                     while (true) {
                         try {
@@ -133,10 +133,10 @@ public class Reports {
                                     : LocalTime.parse(input);
                             break;
                         } catch (Exception e) {
-                            System.out.println("Invalid Entry, please try again.");
+                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
                         }
                     }
-                    System.out.println("Enter the vendor name (Leave empty for any)");
+                    UIFormatting.printLHeader("Enter the vendor name (Leave empty for any)");
                     String vendorFilter = "";
                     while (true) {
                         try {
@@ -146,10 +146,10 @@ public class Reports {
                                     : input;
                             break;
                         } catch (Exception ex) {
-                            System.out.println("Invalid Entry, please try again.");
+                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
                         }
                     }
-                    System.out.println("Enter the status | Deposit/Payment (Leave empty for both)");
+                    UIFormatting.printLHeader("Enter the status | Deposit/Payment (Leave empty for both)");
                     String statusFilter = "";
                     while (true) {
                         try {
@@ -159,7 +159,7 @@ public class Reports {
                                     : input;
                             break;
                         } catch (Exception ex) {
-                            System.out.println("Invalid Entry, please try again.");
+                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
                         }
                     }
 
@@ -185,13 +185,13 @@ public class Reports {
             String vendorFilter,
             String statusFilter) {
 
-        ArrayList<Transaction> results = new ArrayList<>();
-
         if (startDate != null && endDate != null
                 && startDate.isAfter(endDate)) {
             throw new IllegalArgumentException(
                     "Start date cannot be after end date.");
         }
+
+        ArrayList<Transaction> results = new ArrayList<>();
 
         for (Transaction transaction : transactions) {
 
@@ -231,8 +231,8 @@ public class Reports {
             }
 
             if (results.isEmpty()) {
-                System.out.println(
-                        "No transactions available for this search criteria.");
+                System.out.println(UIFormatting.RED +
+                        "No transactions available for this search criteria." + UIFormatting.RESET);
         }
         return results;
     }

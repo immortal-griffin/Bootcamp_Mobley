@@ -81,14 +81,15 @@ public class Ledger {
     }
 
     public static void printTransaction(Transaction t) {
-        System.out.println(
+        System.out.println(UIFormatting.STEEL_SILVER +
                 t.getDate() + "|" +
                 t.getTime() + "|" +
                 t.getDescription() + "|" +
                 t.getVendor() + "|" +
                 t.getAmount() + "|" +
-                t.getStatus());
+                t.getStatus() +
+                UIFormatting.RESET);
     }
 }
 
-//todo: try to evaluate a way to consolidate case A (line 29)
+//todo:

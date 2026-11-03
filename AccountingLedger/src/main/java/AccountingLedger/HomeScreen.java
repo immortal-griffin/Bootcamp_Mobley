@@ -63,7 +63,7 @@ public class HomeScreen {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Try again");
+                    System.out.println(UIFormatting.RED + "Invalid choice. Please try again" + UIFormatting.RESET);
 
             }
         }

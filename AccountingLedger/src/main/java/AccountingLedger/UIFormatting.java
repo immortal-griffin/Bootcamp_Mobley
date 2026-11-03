@@ -9,10 +9,11 @@ public class UIFormatting {
     public static final String RESET = "\u001B[0m";
 
     // Text Colors
-    public static final String GOLD = "\u001B[38;2;214;173;85m";
+    public static final String GOLD = "\u001B[38;2;198;173;112m";
     public static final String TAUPE = "\u001B[38;2;129;102;85m";
     public static final String WHITE = "\u001B[38;2;235;235;235m";
-    public static final String SILVER = "\u001B[38;2;175;175;175m";
+    public static final String SILVER = "\u001B[38;2;160;160;160m";
+    public static final String STEEL_SILVER = "\u001B[38;2;144;153;163m";
 
     // Status Colors
     public static final String RED = "\u001B[38;2;205;75;75m";
@@ -27,16 +28,16 @@ public class UIFormatting {
     // ==========================================
 
     public static final String TOP_BORDER =
-            "╔══════════════════════════════════════╗";
+            "╔════════════════════════════════════════════════════════════╗";
 
     public static final String BOTTOM_BORDER =
-            "╚══════════════════════════════════════╝";
+            "╚════════════════════════════════════════════════════════════╝";
 
     public static final String DIVIDER =
-            "╠══════════════════════════════════════╣";
+            "╠════════════════════════════════════════════════════════════╣";
 
     public static final String EMPTY_BORDER =
-            "║                                      ║";
+            "║                                                            ║";
 
     public static final String SMALL_TOP_BORDER =
             "╔══════════════════════════════╗";
@@ -59,7 +60,7 @@ public class UIFormatting {
         System.out.println(GOLD + TOP_BORDER + RESET);
 
         System.out.println(GOLD + "║" + RESET +
-                GOLD + centerText(title, 50) + RESET +
+                GOLD + centerText(title, 60) + RESET +
                 GOLD + "║" + RESET);
 
         System.out.println(GOLD + BOTTOM_BORDER + RESET);
