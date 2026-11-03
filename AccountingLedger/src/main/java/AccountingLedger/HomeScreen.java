@@ -10,6 +10,8 @@ public class HomeScreen {
         HomeScreen.launchHomeScreen();
     }
 
+    public static Scanner scanner = new Scanner(System.in);
+
     public static void launchHomeScreen() {
     Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -22,22 +24,22 @@ public class HomeScreen {
 
             switch (userChoice) {
                 case 'D':
-                    LocalDate date = Methodology.promptForDate("Enter Date |yyyy-mm-dd|");
-                    LocalTime time = Methodology.promptForTime("Enter Time |hh:mm:ss|");
-                    String description = Methodology.promptForString("Enter Description");
-                    String vendor = Methodology.promptForString("Enter Vendor");
-                    float amount = Methodology.promptForDeposit("Enter Amount");
+                    LocalDate date = promptForDate("Enter Date |yyyy-mm-dd|");
+                    LocalTime time = promptForTime("Enter Time |hh:mm:ss|");
+                    String description = promptForString("Enter Description");
+                    String vendor = promptForString("Enter Vendor");
+                    float amount = promptForDeposit("Enter Amount");
                     String status = "Deposit";
 
                     Transaction transaction = new Transaction(date, time, description, vendor, amount, status);
                     FileManager.writeTransaction(transaction);
                     break;
                 case 'P':
-                    LocalDate pDate = Methodology.promptForDate("Enter Date |yyyy-mm-dd|");
-                    LocalTime pTime = Methodology.promptForTime("Enter Time |hh:mm:ss|");
-                    String pDescription = Methodology.promptForString("Enter Description");
-                    String pVendor = Methodology.promptForString("Enter Vendor");
-                    float pAmount = Methodology.promptForPayment("Enter Amount");
+                    LocalDate pDate = promptForDate("Enter Date |yyyy-mm-dd|");
+                    LocalTime pTime = promptForTime("Enter Time |hh:mm:ss|");
+                    String pDescription = promptForString("Enter Description");
+                    String pVendor = promptForString("Enter Vendor");
+                    float pAmount = promptForPayment("Enter Amount");
                     String pStatus = "Payment";
 
                     Transaction payment = new Transaction(pDate, pTime, pDescription, pVendor, pAmount, pStatus);
@@ -53,6 +55,60 @@ public class HomeScreen {
                 default:
                     System.out.println("Try again");
 
+            }
+        }
+    }
+
+    public static String promptForString(String prompt) {
+        System.out.println(prompt);
+        String input = scanner.nextLine();
+        return input;
+    }
+
+    public static float promptForDeposit(String prompt) {
+        while(true) {
+            try {
+                System.out.println(prompt);
+                String input = scanner.nextLine();
+                return Float.parseFloat(input);
+            } catch (Exception e) {
+                System.out.println("Invalid Entry, please try again.");
+            }
+        }
+    }
+
+    public static float promptForPayment(String prompt) {
+        while(true) {
+            try {
+                System.out.println(prompt);
+                String input = "-" + scanner.nextLine();
+                return Float.parseFloat(input);
+            } catch (Exception e) {
+                System.out.println("Invalid Entry, please try again.");
+            }
+        }
+    }
+
+    public static LocalDate promptForDate(String prompt) {
+        while(true) {
+            try {
+                System.out.println(prompt);
+                String input = scanner.nextLine();
+                return LocalDate.parse(input);
+            } catch (Exception ex) {
+                System.out.println("Invalid Format. Please use yyyy-mm-dd");
+            }
+        }
+    }
+
+    public static LocalTime promptForTime(String prompt) {
+        while(true) {
+            try {
+                System.out.println(prompt);
+                String input = scanner.nextLine();
+                return LocalTime.parse(input);
+            } catch (Exception ex) {
+                System.out.println("Invalid Format. Please use hh:mm:ss");
             }
         }
     }

@@ -8,8 +8,9 @@ import java.util.Scanner;
 import static AccountingLedger.Ledger.transactions;
 
 public class Reports {
+    public static Scanner scanner = new Scanner(System.in);
+
     public static void reportsMain() {
-        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("Reports");
@@ -73,7 +74,87 @@ public class Reports {
                     }
                     break;
                 case 6:
-                    System.out.println("Custom search coming soon....");
+                    System.out.println("Custom Search");
+                    System.out.println("Enter the start date yyyy-mm-dd (Leave empty for any)");
+                    LocalDate startDate = null;
+                    while (true) {
+                        try {
+                            String input = scanner.nextLine();
+                            startDate = input.isEmpty()
+                                    ? null
+                                    : LocalDate.parse(input);
+                                    break;
+                        } catch (Exception e) {
+                            System.out.println("Invalid Entry, please try again.");
+                        }
+                    }
+                    System.out.println("Enter the end date yyyy-mm-dd (Leave empty for any)");
+                    LocalDate endDate = null;
+                    while (true) {
+                        try {
+                            String input = scanner.nextLine();
+                            endDate = input.isEmpty()
+                                    ? null
+                                    : LocalDate.parse(input);
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("Invalid Entry, please try again.");
+                        }
+                    }
+                    System.out.println("Enter the start time hh:mm:ss (Leave empty for any)");
+                    LocalTime startTime = null;
+                    while (true) {
+                        try {
+                            String input = scanner.nextLine();
+                            startTime = input.isEmpty()
+                                    ? null
+                                    : LocalTime.parse(input);
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("Invalid Entry, please try again.");
+                        }
+                    }
+                    System.out.println("Enter the end time hh:mm:ss (Leave empty for any)");
+                    LocalTime endTime = null;
+                    while (true) {
+                        try {
+                            String input = scanner.nextLine();
+                            endTime = input.isEmpty()
+                                    ? null
+                                    : LocalTime.parse(input);
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("Invalid Entry, please try again.");
+                        }
+                    }
+                    System.out.println("Enter the vendor name (Leave empty for any)");
+                    String vendorFilter = "";
+                    while (true) {
+                        try {
+                            String input = scanner.nextLine();
+                            vendorFilter = input.isEmpty()
+                                    ? null
+                                    : input;
+                            break;
+                        } catch (Exception ex) {
+                            System.out.println("Invalid Entry, please try again.");
+                        }
+                    }
+                    System.out.println("Enter the status | Deposit/Payment (Leave empty for both)");
+                    String statusFilter = "";
+                    while (true) {
+                        try {
+                            String input = scanner.nextLine();
+                            statusFilter = input.isEmpty()
+                                    ? null
+                                    : input;
+                            break;
+                        } catch (Exception ex) {
+                            System.out.println("Invalid Entry, please try again.");
+                        }
+                    }
+
+                    searchTransactions(transactions, startDate, endDate, startTime, endTime, vendorFilter, statusFilter);
                     break;
                 case 9:
                     Ledger.ledgerMain();
@@ -137,6 +218,8 @@ public class Reports {
                                 transaction.getVendor() + "|" +
                                 transaction.getAmount() + "|" +
                                 transaction.getStatus());
+            } else {
+                System.out.println("No transactions available for this search criteria.");
             }
         }
         return results;
