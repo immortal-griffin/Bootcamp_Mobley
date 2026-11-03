@@ -220,8 +220,11 @@ public class Reports {
                                 transaction.getStatus());
             } else {
                 System.out.println("No transactions available for this search criteria.");
+                break;
             }
         }
         return results;
     }
 }
+
+//todo: further testing for the search options and prepare to address edge cases

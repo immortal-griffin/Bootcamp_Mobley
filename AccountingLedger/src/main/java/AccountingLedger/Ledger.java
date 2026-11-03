@@ -103,6 +103,5 @@ public class Ledger {
                 t.getStatus());
     }
 }
-//todo: Create Reports class to contain Reports branch and methods
-//todo: Create predetermined search functions for Reports class
-//todo: Work out custom search function
+
+//todo: try to evaluate a way to consolidate case A (line 29)

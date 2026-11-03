@@ -1,6 +1,5 @@
 package AccountingLedger;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
@@ -15,11 +14,23 @@ public class HomeScreen {
     public static void launchHomeScreen() {
     Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Main Menu");
-            System.out.println("D) Add Deposit");
-            System.out.println("P) Make Payment or Add Debit");
-            System.out.println("L) Access Ledger");
-            System.out.println("X) Exit");
+
+            //display customized main menu
+            System.out.println(UIFormatting.BG_CHARCOAL + UIFormatting.GOLD +
+                    "\n╔══════════════════════════════╗\n" +
+                    "║        POTARA CUSTOMS        ║\n" +
+                    "║       FINANCIAL LEDGER       ║\n" +
+                    "║                              ║\n" +
+                    "║D) Add Deposit                ║\n" +
+                    "║P) Make Payment or Add Debit  ║\n" +
+                    "║L) Access Ledger              ║\n" +
+                    "║X) Exit                       ║\n" +
+                    "╚══════════════════════════════╝\n" +
+                    "╔══════════════════════════════╗\n" +
+                    "║    Please choose an option   ║\n" +
+                    "╚══════════════════════════════╝\n" +
+                    UIFormatting.RESET);
+
             char userChoice = scanner.nextLine().charAt(0);
 
             switch (userChoice) {
@@ -113,3 +124,5 @@ public class HomeScreen {
         }
     }
 }
+
+//todo: prepare the HomeScreen for polish and formatting

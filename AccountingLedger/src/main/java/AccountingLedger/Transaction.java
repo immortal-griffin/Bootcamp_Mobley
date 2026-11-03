@@ -70,5 +70,4 @@ public class Transaction {
 
 }
 
-//I need to have one method for making a payment - negative
-//I need to have one method for adding money - positive
+//todo: remove getters and/or setters that aren't needed
