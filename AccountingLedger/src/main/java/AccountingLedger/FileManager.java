@@ -18,7 +18,7 @@ public class FileManager {
             bufferedReader.readLine();
             while ((row = bufferedReader.readLine()) != null) {
                 String[] brokenUpRow = row.split("\\|");
-                LocalDate date = LocalDate.parse((brokenUpRow[0]));
+                LocalDate date = LocalDate.parse(brokenUpRow[0]);
                 LocalTime time = LocalTime.parse(brokenUpRow[1]);
                 String description = brokenUpRow[2];
                 String vendor = brokenUpRow[3];
@@ -37,29 +37,31 @@ public class FileManager {
         return transactions;
     }
 
-    public static void writeTransaction(Transaction transaction) {
-        try {
-            FileWriter fileWriter = new FileWriter("src/main/resources/transactions.csv", true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+    public static boolean writeTransaction(Transaction transaction) {
 
-            String line = String.format("%s|%s|%s|%s|%.2f|%s",
+        String filePath = "src/main/resources/transactions.csv";
+
+        try (BufferedWriter bufferedWriter =
+                     new BufferedWriter(new FileWriter(filePath, true))) {
+
+            String line = String.format(
+                    "%s|%s|%s|%s|%.2f|%s",
                     transaction.getDate(),
                     transaction.getTime(),
                     transaction.getDescription(),
                     transaction.getVendor(),
                     transaction.getAmount(),
-                    transaction.getStatus());
+                    transaction.getStatus()
+            );
 
             bufferedWriter.newLine();
             bufferedWriter.write(line);
 
-            bufferedWriter.close();
-
             System.out.println(UIFormatting.GREEN + "New transaction added to ledger!" + UIFormatting.RESET);
+            return true;
         } catch (IOException ex) {
             System.out.println(UIFormatting.RED + "Could not write to the file.");
-        } catch (Exception ex) {
-            System.out.println("Error when handling the data." + UIFormatting.RESET);
+            return false;
         }
     }
 }

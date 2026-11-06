@@ -92,9 +92,9 @@ public class Reports {
                             startDate = input.isEmpty()
                                     ? null
                                     : LocalDate.parse(input);
-                                    break;
+                            break;
                         } catch (Exception e) {
-                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
+                            errorFormat("Invalid Entry, please try again.");
                         }
                     }
                     UIFormatting.printLHeader("Enter the end date yyyy-mm-dd (Leave empty for any)");
@@ -107,7 +107,7 @@ public class Reports {
                                     : LocalDate.parse(input);
                             break;
                         } catch (Exception e) {
-                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
+                            errorFormat("Invalid Entry, please try again.");
                         }
                     }
                     UIFormatting.printLHeader("Enter the start time hh:mm:ss (Leave empty for any)");
@@ -120,7 +120,7 @@ public class Reports {
                                     : LocalTime.parse(input);
                             break;
                         } catch (Exception e) {
-                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
+                            errorFormat("Invalid Entry, please try again.");
                         }
                     }
                     UIFormatting.printLHeader("Enter the end time hh:mm:ss (Leave empty for any)");
@@ -133,7 +133,7 @@ public class Reports {
                                     : LocalTime.parse(input);
                             break;
                         } catch (Exception e) {
-                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
+                            errorFormat("Invalid Entry, please try again.");
                         }
                     }
                     UIFormatting.printLHeader("Enter the vendor name (Leave empty for any)");
@@ -146,7 +146,7 @@ public class Reports {
                                     : input;
                             break;
                         } catch (Exception ex) {
-                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
+                            errorFormat("Invalid Entry, please try again.");
                         }
                     }
                     UIFormatting.printLHeader("Enter the status | Deposit/Payment (Leave empty for both)");
@@ -159,7 +159,7 @@ public class Reports {
                                     : input;
                             break;
                         } catch (Exception ex) {
-                            System.out.println(UIFormatting.RED + "Invalid Entry, please try again.");
+                            errorFormat("Invalid Entry, please try again.");
                         }
                     }
 
@@ -174,6 +174,14 @@ public class Reports {
                 default:
             }
         }
+    }
+
+    public static void genFormat(String prompt) {
+        System.out.println(UIFormatting.GOLD + prompt + UIFormatting.RESET);
+    }
+
+    public static void errorFormat(String prompt) {
+        System.out.println(UIFormatting.RED + prompt + UIFormatting.RESET);
     }
 
     public static ArrayList<Transaction> searchTransactions(
@@ -222,20 +230,48 @@ public class Reports {
                 results.add(transaction);
                 System.out.println(
                         transaction.getDate() + "|" +
-                        transaction.getTime() + "|" +
-                        transaction.getDescription() + "|" +
-                        transaction.getVendor() + "|" +
-                        transaction.getAmount() + "|" +
-                        transaction.getStatus());
+                                transaction.getTime() + "|" +
+                                transaction.getDescription() + "|" +
+                                transaction.getVendor() + "|" +
+                                transaction.getAmount() + "|" +
+                                transaction.getStatus());
             }
-            }
+        }
 
-            if (results.isEmpty()) {
-                System.out.println(UIFormatting.RED +
-                        "No transactions available for this search criteria." + UIFormatting.RESET);
+        if (results.isEmpty()) {
+            errorFormat("No transactions available for this search criteria.");
         }
         return results;
     }
-}
+
+    /*public static void passwordSystem() {
+        int i = 0;
+        System.out.println("Please input your manager password:");
+        int managerPass = scanner.nextInt();
+        if (managerPass == 1234) {     //Default password
+            System.out.println("Thank you, Griffin.");
+            System.out.println("Loading The system...");
+        } else if (managerPass != 1234) {
+            errorFormat("Invalid Password.");
+            errorFormat("Please try again.");
+            i++;
+            while (i <= 2) {
+                System.out.println("Please reenter your password.");
+                int passwordRetry = scanner.nextInt();
+                 if (passwordRetry != 1234 && i < 2) {
+                    errorFormat("Invalid password. Please try again.");
+                    i++;
+                } else if (i == 2) {
+                    errorFormat("You have input the wrong password too many times. Closing the program...");
+                    System.exit(0);
+                } else {
+                     System.out.println("Thank you, Griffin.");
+                    System.out.println("Loading the system...");
+                    i = 3;
+                }
+            }
+        } */
+    }
 
 //todo: further testing for the search options and prepare to address edge cases
+//todo: password system for transaction management
