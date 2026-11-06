@@ -176,6 +176,7 @@ public class Reports {
         }
     }
 
+    //Formatting method to change colors of the text
     public static void genFormat(String prompt) {
         System.out.println(UIFormatting.GOLD + prompt + UIFormatting.RESET);
     }
