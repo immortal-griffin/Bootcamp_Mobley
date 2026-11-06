@@ -32,7 +32,7 @@ public class FileManager {
         } catch (IOException ex) {
             System.out.println("Could not read the file. Check the file and try again.");
         } catch (Exception ex) {
-            System.out.println("Could not read data from the file. Check the format.");
+            ex.printStackTrace();
         }
         return transactions;
     }

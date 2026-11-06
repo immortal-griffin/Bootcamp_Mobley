@@ -1,14 +1,14 @@
-id|date|time|description|vendor|amount|status
-1|2025-07-18|09:35:35|Mid Range PC Build|Greg Samson|545.00|Deposit
-2|2026-10-25|11:47:25|Nvidia 5090 Graphics Card|Nvidia|-1295.87|Payment
-3|2026-10-26|09:15:32|Corsair RAM DDR5 32GB|Corsair|-124.99|Payment
-4|2026-10-26|10:42:18|Samsung 990 PRO 2TB SSD|Samsung|-179.99|Payment
-5|2026-10-27|14:23:51|AMD Ryzen 7 7800X3D|AMD|-389.00|Payment
-6|2026-10-27|16:05:12|Custom Gaming PC Deposit|Sarah Reese|750.00|Deposit
-7|2026-10-28|11:32:44|High-End Gaming PC Final|Darius Lipford|1200.00|Deposit
-8|2026-10-29|13:18:09|Anime-Themed PC Build Deposit|Marcus Jones|500.00|Deposit
-9|2026-10-31|08:04:45|Deposit For High End Gaming PC|Tre Peterson|450.00|Deposit
-10|2026-10-31|10:55:45|GSkill Trident 32GB RAM|Potara Fusion Gear|-189.99|Payment
-11|2026-11-01|10:30|Dragon Ball Z Themed PC Build Deposit|Stephen Black|450.00|Deposit
-12|2026-11-02|09:42|Jujutsu Kaisen Themed High End Build|Cameron McGill|400.00|Deposit
-13|2026-11-05|23:53|NZXT H9 Mid-Tower Case|Potara Fusion Gear|-119.99|Payment
+date|time|description|vendor|amount|status
+2025-07-18|09:35:35|Mid Range PC Build|Greg Samson|545.00|Deposit
+2026-10-25|11:47:25|Nvidia 5090 Graphics Card|Nvidia|-1295.87|Payment
+2026-10-26|09:15:32|Corsair RAM DDR5 32GB|Corsair|-124.99|Payment
+2026-10-26|10:42:18|Samsung 990 PRO 2TB SSD|Samsung|-179.99|Payment
+2026-10-27|14:23:51|AMD Ryzen 7 7800X3D|AMD|-389.00|Payment
+2026-10-27|16:05:12|Custom Gaming PC Deposit|Sarah Reese|750.00|Deposit
+2026-10-28|11:32:44|High-End Gaming PC Final|Darius Lipford|1200.00|Deposit
+2026-10-29|13:18:09|Anime-Themed PC Build Deposit|Marcus Jones|500.00|Deposit
+2026-10-31|08:04:45|Deposit For High End Gaming PC|Tre Peterson|450.00|Deposit
+2026-10-31|10:55:45|GSkill Trident 32GB RAM|Potara Fusion Gear|-189.99|Payment
+2026-11-01|10:30|Dragon Ball Z Themed PC Build Deposit|Stephen Black|450.00|Deposit
+2026-11-02|09:42|Jujutsu Kaisen Themed High End Build|Cameron McGill|400.00|Deposit
+2026-11-05|23:53|NZXT H9 Mid-Tower Case|Potara Fusion Gear|-119.99|Payment

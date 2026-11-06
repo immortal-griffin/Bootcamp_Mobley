@@ -700,8 +700,6 @@ public class GuiApplication extends Application {
         saveButton.setOnAction(event -> {
 
             try {
-                int id = Integer.parseInt(amountField.getId());
-
                 LocalDate date = dateField.getValue();
 
                 LocalTime time = LocalTime.parse(timeField.getText());
@@ -739,6 +737,8 @@ public class GuiApplication extends Application {
                         amount,
                         status
                 );
+
+                System.out.println("Transactions loaded: " + transactions.size());
 
                 // Save to CSV
                 if (FileManager.writeTransaction(transaction)) {
