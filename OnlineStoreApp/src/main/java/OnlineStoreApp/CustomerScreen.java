@@ -9,8 +9,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerScreen {
+    public static ArrayList<Product> products = new ArrayList<>();
+
     public static void customerScreen() {
         Scanner scanner = new Scanner(System.in);
+        products = (ArrayList<Product>) FileManager.readProducts();
 
         System.out.println("----- Welcome To Griffin's Electronics -----");
         System.out.println("Please enter your first name");
@@ -27,45 +30,16 @@ public class CustomerScreen {
 
             switch (userChoice) {
                 case 1:
-                    ArrayList<String> products = new ArrayList<>();
-                    try {
-                        FileReader fileReader = new FileReader("src/main/resources/products.csv");
-                        BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-                        String row;
-                        int i = 1;
-
-                        bufferedReader.readLine();
-                        while ((row = bufferedReader.readLine()) != null) {
-                            String[] brokenUpRow = row.split("\\|");
-                            int id = Integer.parseInt(brokenUpRow[0]);
-                            String sku = brokenUpRow[1];
-                            String productName = brokenUpRow[2];
-                            float price = Float.parseFloat(brokenUpRow[3]);
-                            String category = brokenUpRow[4];
-                            int quantity = Integer.parseInt(brokenUpRow[5]);
-                            products.add(row);
-
-                            System.out.println("Item " + i + ": " + brokenUpRow[2] + ", it costs $" + brokenUpRow[3] + ", and we have " + brokenUpRow[5] + " in stock.");
-                            i++;
-                        }
-                    } catch (FileNotFoundException ex) {
-                        System.out.println("Could not read file.");
-                        ex.printStackTrace();
-                    } catch (IOException ex) {
-                        System.out.println("IO Exception.");
-                        ex.printStackTrace();
-                    }
+                    sort();
                     System.out.println("Please enter the ID of the item you'd like, or enter 0 to go back");
                     int choice = scanner.nextInt();
                     scanner.nextLine();
 
-                    for (String product : products) {
-                        String[] brokenUpRow = product.split("\\|");
-                        int id = Integer.parseInt(brokenUpRow[0]);
-                        if (id == choice) {
-                            FileManager.addToCart(product);
-                            System.out.println("You have added " + brokenUpRow[2] + " to your cart!");
+                    for (int i = 0; i < products.size(); i++) {
+                        Product p = products.get(i);
+                        if (p.getId() == choice) {
+                            FileManager.addToCart(p);
+                            System.out.println("You have added " + p.getProductName() + " to your cart!");
                             System.out.println("Returning to main menu...");
                         }
                     }
@@ -76,37 +50,25 @@ public class CustomerScreen {
                     System.out.println("Enter the category you'd like to search for");
                     String userCategory = scanner.nextLine();
 
-                    try {
-                        FileReader fileReader = new FileReader("src/main/resources/products.csv");
-                        BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    for (int i = 0; i < products.size(); i++) {
+                        Product p = products.get(i);
+                        if (p.getCategory().equals(userCategory)) {
+                            printTransaction(p);
+                        }
+                    }
 
-                        String row;
-                        int i = 1;
+                    System.out.println("Please enter the ID of the item you'd like, or enter 0 to go back");
+                    int uChoice = scanner.nextInt();
+                    scanner.nextLine();
 
-                        bufferedReader.readLine();
-                        while ((row = bufferedReader.readLine()) != null) {
-                            String[] brokenUpRow = row.split("\\|");
-                            int id = Integer.parseInt(brokenUpRow[0]);
-                            String sku = brokenUpRow[1];
-                            String productName = brokenUpRow[2];
-                            float price = Float.parseFloat(brokenUpRow[3]);
-                            String category = brokenUpRow[4];
-                            int quantity = Integer.parseInt(brokenUpRow[5]);
-                                if (category.equals(userCategory)) {
-                                    System.out.println("Item " + i + ": " + brokenUpRow[2] + ", it costs $" + brokenUpRow[3] + ", and we have " + brokenUpRow[5] + " in stock.");
-                                    i++;
-                                } else {
-                                    System.out.println("Category Not Found or Invalid Choice");
-                                    System.exit(0);
-                                }
-                            }
-                            } catch(FileNotFoundException ex){
-                                System.out.println("Could not read file.");
-                                ex.printStackTrace();
-                            } catch(IOException ex){
-                                System.out.println("IO Exception.");
-                                ex.printStackTrace();
-                            }
+                    for (int i = 0; i < products.size(); i++) {
+                        Product p = products.get(i);
+                        if (p.getId() == uChoice) {
+                            FileManager.addToCart(p);
+                            System.out.println("You have added " + p.getProductName() + " to your cart!");
+                            System.out.println("Returning to main menu...");
+                        }
+                    }
                     break;
                 case 3:
                     System.out.println("View cart function coming soon...");
@@ -118,5 +80,17 @@ public class CustomerScreen {
                     System.out.println("Invalid choice, please try again.");
             }
         }
+    }
+
+    public static void sort() {
+        for (int i = 0; i < products.size(); i++) {
+            Product p = products.get(i);
+            printTransaction(p);
+        }
+    }
+
+    public static void printTransaction(Product p) {
+        System.out.println(
+                        "Item " + p.getId() + ": " + p.getProductName() + ", it costs $" + p.getPrice() + ", and we have " + p.getQuantity() + " in stock.");
     }
 }

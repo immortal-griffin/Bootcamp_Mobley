@@ -61,13 +61,21 @@ public class FileManager {
         }
     }
 
-    public static void addToCart(String product) {
+    public static void addToCart(Product p) {
 
         try {
             FileWriter fileWriter = new FileWriter("src/main/resources/cart.csv", true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-            bufferedWriter.write(product);
+            bufferedWriter.write(
+                    p.getId() + "|" +
+                    p.getSku() + "|" +
+                    p.getProductName() + "|" +
+                    p.getPrice() + "|" +
+                    p.getCategory() + "|" +
+                    p.getQuantity()
+            );
+
             bufferedWriter.newLine();
 
             bufferedWriter.close();
