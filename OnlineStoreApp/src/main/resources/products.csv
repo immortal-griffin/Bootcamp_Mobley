@@ -1,4 +1,4 @@
-ID|SKU|Product Name|Price|Category|Quantity
+id|sku|productName|price|category|quantity
 1|CPU10001|AMD Ryzen 7 7800X3D|389.99|PC Components|7
 2|CPU10002|Intel Core i7-14700K|379.99|PC Components|8
 3|GPU20001|NVIDIA GeForce RTX 4070 SUPER|599.99|PC Components|3
@@ -12,11 +12,11 @@ ID|SKU|Product Name|Price|Category|Quantity
 11|CASE70001|NZXT H7 Flow Mid-Tower Case|129.99|PC Cases|5
 12|CLG80001|Noctua NH-D15 CPU Cooler|109.99|Cooling|7
 13|MON90001|LG UltraGear 27-inch 144Hz Monitor|249.99|Monitors|4
-14|MON90002|Samsung Odyssey G7 32-inch Monitor|599.99|Monitors|6
+14|MON90002|Samsung Odyssey G7 32-inch Monitor|599.99|Monitors|9
 15|KEY10002|Logitech G Pro Mechanical Keyboard|129.99|Gaming Accessories|9
 16|MOU20003|Razer DeathAdder V3 Gaming Mouse|69.99|Gaming Accessories|5
 17|HDS30003|SteelSeries Arctis Nova 7 Headset|179.99|Audio Equipment|10
-18|MIC40004|Blue Yeti USB Microphone|99.99|Audio Equipment|6
+18|MIC40004|Blue Yeti USB Microphone|99.99|Audio Equipment|8
 19|CAM50005|Logitech Brio 4K Webcam|129.99|Camera Equipment|8
 20|CAM50006|Canon EOS R50 Mirrorless Camera|679.99|Camera Equipment|4
 21|LEN60007|Elgato Key Light Air|129.99|Streaming Equipment|10

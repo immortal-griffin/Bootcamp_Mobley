@@ -61,6 +61,54 @@ public class FileManager {
         }
     }
 
+    public static List<Product> readCart() {
+        List<Product> productList = new ArrayList<>();
+
+        try {
+            FileReader fileReader = new FileReader("src/main/resources/cart.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String row;
+
+            bufferedReader.readLine();
+
+            while ((row = bufferedReader.readLine()) != null) {
+                String[] brokenUpRow = row.split("\\|");
+
+                int id = Integer.parseInt(brokenUpRow[0]);
+                String sku = brokenUpRow[1];
+                String productName = brokenUpRow[2];
+                float price = Float.parseFloat(brokenUpRow[3]);
+                String category = brokenUpRow[4];
+                int quantity = Integer.parseInt(brokenUpRow[5]);
+
+                Product product = new Product(id, sku, productName, price, category, quantity);
+
+                productList.add(product);
+
+                System.out.println(
+                        product.getId() + "|" +
+                        product.getSku() + "|" +
+                        product.getProductName() + "|" +
+                        product.getPrice() + "|" +
+                        product.getCategory() + "|" +
+                        product.getQuantity()
+                );
+            }
+
+            if (productList.isEmpty()) {
+                System.out.println("Your shopping cart is currently empty.");
+            }
+
+        } catch (IOException ex) {
+            System.out.println("Could not read the file. Check the file and try again.");
+        } catch (Exception ex) {
+            System.out.println("Could not read data from the file. Check the format.");
+        }
+
+        return productList;
+    }
+
     public static void addToCart(Product p) {
 
         try {
@@ -69,11 +117,11 @@ public class FileManager {
 
             bufferedWriter.write(
                     p.getId() + "|" +
-                    p.getSku() + "|" +
-                    p.getProductName() + "|" +
-                    p.getPrice() + "|" +
-                    p.getCategory() + "|" +
-                    p.getQuantity()
+                            p.getSku() + "|" +
+                            p.getProductName() + "|" +
+                            p.getPrice() + "|" +
+                            p.getCategory() + "|" +
+                            p.getQuantity()
             );
 
             bufferedWriter.newLine();
@@ -88,13 +136,13 @@ public class FileManager {
     public static void printCsv() {
         try {
             FileReader fileReader = new FileReader("src/main/resources/products.csv");
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-                String line;
+            String line;
 
-            while((line =bufferedReader.readLine())!=null) {
-                    System.out.println(line);
-                }
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
         } catch (FileNotFoundException ex) {
             System.out.println("Issue reading file.");
             ex.printStackTrace();
@@ -143,14 +191,41 @@ public class FileManager {
 
         return products;
     }
-    }
 
-/*List<Product> products = loadProductsFromFile();
+    public static void updateProducts(ArrayList<Product> products) {
+
+        try (BufferedWriter writer = new BufferedWriter(
+                new FileWriter("src/main/resources/products.csv", false))) {
+
+            // Write the CSV header
+            writer.write("id|sku|productName|price|category|quantity");
+            writer.newLine();
+
+            // Rewrite every product in the ArrayList
+            for (Product p : products) {
+
+                writer.write(
+                        p.getId() + "|" +
+                                p.getSku() + "|" +
+                                p.getProductName() + "|" +
+                                p.getPrice() + "|" +
+                                p.getCategory() + "|" +
+                                p.getQuantity()
+                );
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+
+
+        /*List<Product> products = loadProductsFromFile();
 List<Product> foundProducts = new ArrayList<>();
         for (Product product : products) {
         if (product.getCategory().toLowerCase().contains(category.toLowerCase())) {
         foundProducts.add(product);
             }
                     }
-                    return foundProducts;
-    } */
+                    return foundProducts;*/

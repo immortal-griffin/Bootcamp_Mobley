@@ -53,7 +53,7 @@ public class CustomerScreen {
                     for (int i = 0; i < products.size(); i++) {
                         Product p = products.get(i);
                         if (p.getCategory().equals(userCategory)) {
-                            printTransaction(p);
+                            printProductList(p);
                         }
                     }
 
@@ -71,7 +71,7 @@ public class CustomerScreen {
                     }
                     break;
                 case 3:
-                    System.out.println("View cart function coming soon...");
+                    FileManager.readCart();
                     break;
                 case 0:
                     System.exit(0);
@@ -85,12 +85,14 @@ public class CustomerScreen {
     public static void sort() {
         for (int i = 0; i < products.size(); i++) {
             Product p = products.get(i);
-            printTransaction(p);
+            printProductList(p);
         }
     }
 
-    public static void printTransaction(Product p) {
+    public static void printProductList(Product p) {
         System.out.println(
                         "Item " + p.getId() + ": " + p.getProductName() + ", it costs $" + p.getPrice() + ", and we have " + p.getQuantity() + " in stock.");
     }
 }
+
+//todo: View cart function with checkout function
